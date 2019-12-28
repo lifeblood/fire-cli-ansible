@@ -12,7 +12,7 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 install:
   - pip install -r requirements.txt
+  - pip install ansible
 # command to run tests
 script:
-  - nohup python main.py -rpc rpc &
-  - python main.py test hello
+  - ansible -i 127.0.0.1 -m ping
